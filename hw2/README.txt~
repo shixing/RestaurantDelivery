@@ -1,0 +1,85 @@
+URL: cs-server.usc.edu:10000/hw2/login2.php
+-------------------------------------------
+Login Info:
+username password type
+xingshi	 xingshi  admin
+henry	 henry	  manager
+dingna	 dingna	  sale_manager
+-------------------------------------------
+DateBase design:
+create table employee 
+(
+uid int AUTO_INCREMENT,
+username text NOT NULL,
+password text NOT NULL,
+fn text,
+ln text,
+age int,
+type text NOT NULL,
+payment int NOT NULL,
+PRIMARY KEY (uid)
+);
+
+create table category
+(
+cid int AUTO_INCREMENT,
+name text NOT NULL,
+descripition text,
+PRIMARY KEY (cid)
+);
+
+create table product
+(
+pid int AUTO_INCREMENT,
+price Double NOT NULL,
+cid int,
+product_name text NOT NULL,
+product_description text,
+product_img text,
+PRIMARY KEY(pid),
+FOREIGN KEY (cid) REFERENCES category(cid)
+);
+
+create table sale
+(
+sid int AUTO_INCREMENT,
+pid int NOT NULL,
+percent double NOT NULL,
+start_date Date NOT NULL,
+end_date Date NOT NULL,
+PRIMARY KEY(sid),
+FOREIGN KEY(pid) REFERENCES product(pid)
+);
+-------------------------------------------
+File Description:
+
+PHP Files:
+ad_login_error.php
+create.php
+delete.php
+layout.php
+list.php
+login2.php
+logout.php
+modify.php
+modify_record.php
+post.php
+pre.php
+sql.php
+table.php
+time_out.php
+user_home.php
+utils.php
+view.php
+welcome_row.php
+
+HTML FILES:
+ad_head.html	contain <head></head> 
+ad_header.html	contain the navigation bar
+ad_login_form.html	contain login form which is required by login2.php
+
+JS FILES:
+main2.js	Data validation and Ajax call for report pages
+
+CSS FILES:
+main.css
